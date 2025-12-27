@@ -27,7 +27,8 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-2xl font-bold flex items-center space-x-2">
           <NavLink to={"/"}>
-            <img src="logo.webp" alt="Logo" className="w-36" />
+            {/* <img src="logo.webp" alt="Logo" className="w-36" /> */}
+            <span className="font-pacifico text-pink-600">Vingki's Birthday</span>
           </NavLink>
         </div>
 
@@ -44,7 +45,7 @@ const Navbar = () => {
             <NavLink
               key={item.name}
               to={item.href}
-              className="lg:hover:text-gray-700"
+              className="lg:hover:text-gray-700 font-pacifico"
             >
               {item.name}
             </NavLink>
@@ -54,14 +55,14 @@ const Navbar = () => {
 
       {/* Mobile Menu Items */}
       <nav
-        className={`lg:hidden bg-white shadow absolute top-full left-1/2 transform -translate-x-1/2 w-4/5 ease-in-out transition-all duration-700 overflow-hidden z-50 ${
-          isOpen ? "max-h-60 border-t-[3px] border-black" : "max-h-0"
+        className={`lg:hidden bg-white w-full shadow absolute top-full left-1/2 transform -translate-x-1/2 ease-in-out transition-all duration-700 overflow-hidden z-50 ${
+          isOpen ? "max-h-60 border-t-[3px] border-pink-800" : "max-h-0"
         }`}
       >
         <ul className="flex flex-col text-gray-500 p-3 font-medium">
           {navigation.map((item) => (
             <NavLink key={item.name} to={item.href}>
-              <li className="border-b border-gray-100 hover:bg-gray-50 p-3 text-sm">
+              <li className="border-b font-pacifico border-gray-100 hover:bg-gray-50 p-3 text-sm">
                 {item.name}
               </li>
             </NavLink>

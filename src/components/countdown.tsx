@@ -1,5 +1,5 @@
 // Countdown.tsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 interface CountdownProps {
   targetDate: Date; // The target date to count down to
@@ -44,7 +44,7 @@ const Countdown = ({ targetDate, onClick }: CountdownProps) => {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-header text-white">
       <h2 className="lg:text-3xl 2xl:text-5xl text-3xl font-bold lg:mb-10 mb-5 text-mandy/60 text-center">
-        Countdown to <span className="text-mandy">Lorem Ipsum's</span> Birthday
+        Countdown to <span className="text-mandy font-pacifico">Vingki's</span> Birthday
       </h2>
       <div className="grid lg:grid-cols-4 grid-cols-2 gap-5">
         <div className="flex flex-col items-center">
@@ -73,12 +73,14 @@ const Countdown = ({ targetDate, onClick }: CountdownProps) => {
         </div>
       </div>
 
-      <button
-        onClick={onClick}
-        className="mt-8 px-8 py-2 text-white rounded-lg bg-mandy hover:bg-mandy/80 transition"
-      >
-        Start
-      </button>
+      {timeLeft.distance <= 0 ? (
+        <button
+          onClick={onClick}
+          className="mt-8 px-8 py-2 text-white rounded-lg bg-mandy hover:bg-mandy/80 transition"
+        >
+          Start
+        </button>
+      ) : null}
     </div>
   );
 };

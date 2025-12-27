@@ -7,12 +7,16 @@ export default {
         header: "#EEE8E2",
         mandy: "#D05D6C",
         rose: "#EFB4BC",
-      },
+      }, 
+      fontFamily: {
+        pacifico: ["Pacifico", "cursive"],
+      }
     },
     fontFamily: {
       georama: ["Georama", "sans-serif"],
       montserrat: ["Montserrat", "sans-serif"],
       inter: ["Inter", "sans-serif"],
+      pacifico: ["Pacifico", "sans-serif"],
     },
   },
   plugins: [],

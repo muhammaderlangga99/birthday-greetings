@@ -8,38 +8,33 @@ interface Image {
   alt: string;
 }
 
-const images: Image[] = [
-  {
-    id: 1,
-    src: "https://i.pinimg.com/564x/c6/9e/93/c69e939e951e02a6031723c131c908fa.jpg",
-    alt: "Image 1",
-  },
-  {
-    id: 2,
-    src: "https://i.pinimg.com/564x/51/30/77/5130770e4cdec78276415c649837bef0.jpg",
-    alt: "Image 2",
-  },
-  {
-    id: 3,
-    src: "https://i.pinimg.com/564x/f7/96/a7/f796a7be21dba489fbe98ca5d43bd7e5.jpg",
-    alt: "Image 3",
-  },
-  {
-    id: 4,
-    src: "https://i.pinimg.com/564x/c5/d5/63/c5d56308c0363c419ed40e9518b1e9cf.jpg",
-    alt: "Image 4",
-  },
-  {
-    id: 5,
-    src: "https://i.pinimg.com/736x/42/bd/42/42bd4281419cabac8b01f29dd87b263d.jpg",
-    alt: "Image 5",
-  },
-  {
-    id: 6,
-    src: "https://i.pinimg.com/564x/74/e8/37/74e8372371b880d73ccd8132a8a0a59a.jpg",
-    alt: "Image 6",
-  },
+const imageFiles = [
+  "etive.jpeg",
+  "etive2.jpeg",
+  "etive3.jpeg",
+  "alunalun.jpeg",
+  "first2.jpeg",
+  "first3.jpeg",
+  "flower.jpeg",
+  "kondangan.jpeg",
+  "first1.jpeg",
+  "library.jpeg",
+  "lift.jpeg",
+  "movie.jpeg",
+  "movie2.jpeg",
+  "movie4.jpeg",
+  "movie5.jpeg",
+  "seaworld.jpeg",
+  "shadow.jpeg",
+  "tooffice.jpeg",
+  "tooffice2.jpeg",
 ];
+
+const images: Image[] = imageFiles.map((file, index) => ({
+  id: index + 1,
+  src: `/love/${file}`,
+  alt: file.replace(/\.[^/.]+$/, "").replace(/-/g, " "),
+}));
 
 const Gallery = () => {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(
@@ -106,42 +101,24 @@ const Gallery = () => {
         <div className="container mx-auto px-4 lg:px-24">
           <section className="overflow-hidden text-gray-700">
             <div className="mt-28 mb-8">
-              <Heading title="gallery" subtitle="lorem ipsum" />
+              <Heading title="gallery" subtitle="Memories" />
             </div>
-            <div className="flex flex-wrap -m-1 md:-m-2">
-              {/* Left Column */}
-              <div className="flex flex-wrap w-full md:w-1/2">
-                {images.slice(0, 3).map((image, index) => (
-                  <div
-                    key={image.id}
-                    className={`${index === 2 ? "w-full" : "w-1/2"} p-1 md:p-2`}
-                    onClick={() => openSlider(index)}
-                  >
-                    <img
-                      alt={image.alt}
-                      className="block object-cover object-center w-full h-64 rounded-lg cursor-pointer"
-                      src={image.src}
-                    />
-                  </div>
-                ))}
-              </div>
-
-              {/* Right Column */}
-              <div className="flex flex-wrap w-full md:w-1/2">
-                {images.slice(3).map((image, index) => (
-                  <div
-                    key={image.id}
-                    className={`${index === 0 ? "w-full" : "w-1/2"} p-1 md:p-2`}
-                    onClick={() => openSlider(index + 3)}
-                  >
-                    <img
-                      alt={image.alt}
-                      className="block object-cover object-center w-full h-64 rounded-lg cursor-pointer"
-                      src={image.src}
-                    />
-                  </div>
-                ))}
-              </div>
+            <div className="columns-2 lg:columns-3 gap-4 space-y-4">
+              {images.map((image, index) => (
+                <button
+                  key={image.id}
+                  type="button"
+                  className="w-full break-inside-avoid rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition"
+                  onClick={() => openSlider(index)}
+                >
+                  <img
+                    alt={image.alt}
+                    className="block w-full h-auto object-cover"
+                    src={image.src}
+                    loading="lazy"
+                  />
+                </button>
+              ))}
             </div>
           </section>
         </div>

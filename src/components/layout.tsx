@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Countdown from "./countdown";
-import Navbar from "./navbar";
+import Navbar from "./Navbar";
+import { TARGET_DATE } from "@/constants/target-date";
 
 const Layout = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -31,7 +32,7 @@ const Layout = () => {
     };
   }, []);
 
-  const targetDate = new Date("2024-11-16T14:58:00");
+  const targetDate = TARGET_DATE;
 
   return (
     <>

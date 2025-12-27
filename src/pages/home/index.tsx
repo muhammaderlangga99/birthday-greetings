@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
+import confetti from "canvas-confetti";
 import CardMenu from "@/components/card-menu";
 import GiftBox from "@/components/giftbox"; // Import GiftBox component
+import { TARGET_DATE } from "@/constants/target-date";
 
 const menus = [
   {
@@ -46,10 +48,39 @@ const Home = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  useEffect(() => {
+    if (Date.now() < TARGET_DATE.getTime()) {
+      return;
+    }
+
+    const end = Date.now() + 2000;
+
+    const frame = () => {
+      confetti({
+        particleCount: 4,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+      });
+      confetti({
+        particleCount: 4,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+
+    frame();
+  }, []);
+
   const [scrollY, setScrollY] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isGreetingOpen, setIsGreetingOpen] = useState(true);
-  const greetingModalRef = useRef<HTMLDivElement | null>(null); // Ref for greeting modal
+  // const [, setIsGreetingOpen] = useState(true);
+  // const greetingModalRef = useRef<HTMLDivElement | null>(null); // Ref for greeting modal
   const giftBoxModalRef = useRef<HTMLDivElement | null>(null); // Ref for gift box modal
 
   const handleScroll = () => {
@@ -69,6 +100,14 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = isModalOpen ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
+
   const rotationDegree = scrollY * 0.1;
   const parallaxOffset = scrollY * 0.5;
 
@@ -78,14 +117,14 @@ const Home = () => {
   };
 
   // Close greeting modal when clicking outside
-  const handleGreetingModalClick = (e: React.MouseEvent) => {
-    if (
-      greetingModalRef.current &&
-      !greetingModalRef.current.contains(e.target as Node)
-    ) {
-      setIsGreetingOpen(false);
-    }
-  };
+  // const handleGreetingModalClick = (e: React.MouseEvent) => {
+  //   if (
+  //     greetingModalRef.current &&
+  //     !greetingModalRef.current.contains(e.target as Node)
+  //   ) {
+  //     setIsGreetingOpen(false);
+  //   }
+  // };
 
   // Close gift box modal when clicking outside
   const handleGiftBoxModalClick = (e: React.MouseEvent) => {
@@ -111,7 +150,7 @@ const Home = () => {
                 Happy
               </h1>
               <h1 className="font-black text-[#2B343A] uppercase lg:text-7xl md:text-5xl text-4xl leading-[1.2] tracking-wider">
-                Birthday! &lt;3
+                Birthday! ❤️
               </h1>
             </div>
 
@@ -142,21 +181,6 @@ const Home = () => {
       </div>
 
       {/* Greeting Modal */}
-      {isGreetingOpen && (
-        <div
-          className="fixed inset-0 flex items-start top-[4.8rem]  bg-black bg-opacity-50 z-40"
-          onClick={handleGreetingModalClick}
-        >
-          <div
-            ref={greetingModalRef}
-            className="relative p-8 max-w-full lg:mx-40 mx-10 w-full bg-white top-10"
-          >
-            <span className="px-4 py-2 bg-[#E26475] text-white rounded-full">
-              Happy birthday! &lt;3
-            </span>
-          </div>
-        </div>
-      )}
 
       {/* Menu Section */}
       <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
@@ -178,12 +202,12 @@ const Home = () => {
       {/* Modal for GiftBox */}
       {isModalOpen && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-50 z-50 overflow-y-auto px-4 py-10"
           onClick={handleGiftBoxModalClick} // Call the click handler here
         >
           <div
             ref={giftBoxModalRef}
-            className="relative p-8 max-w-lg w-full"
+            className="relative w-full max-w-3xl"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside
           >
             <GiftBox toggleModal={toggleModal} />
