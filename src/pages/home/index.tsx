@@ -18,7 +18,7 @@ const menus = [
     image: "menu/coupons.webp",
     buttonColor: "bg-[#DDA7AD]",
     bgColor: "bg-[#EFB4BC]",
-    title: "Coupons",
+    title: "Gift Coupons",
     buttonText: "Claim Them",
     buttonLink: "/coupons",
     textColor: "text-black",

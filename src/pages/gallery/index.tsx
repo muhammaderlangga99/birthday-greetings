@@ -28,6 +28,7 @@ const imageFiles = [
   "shadow.jpeg",
   "tooffice.jpeg",
   "tooffice2.jpeg",
+  "firstdate.jpeg",
 ];
 
 const images: Image[] = imageFiles.map((file, index) => ({

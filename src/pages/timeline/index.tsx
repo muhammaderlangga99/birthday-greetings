@@ -12,26 +12,26 @@ interface TimelineEvent {
 const timelineData: TimelineEvent[] = [
   {
     id: 1,
-    title: "First Meeting",
-    date: "February 14, 2020",
+    title: "First time I Found You",
+    date: "Agust 18, 2025",
     description:
-      "We met for the first time at a coffee shop on Valentine's Day. It was an unexpected encounter that turned out to be unforgettable.",
-    image: "/love/first1.jpeg",
+      "Ini percakapan pertama kita ketika kamu chat aku di whatsapp, aku masih ingat banget waktu itu, kaku dan awkward banget aku gombalin kamu.",
+    image: "/timeline/first-momment.jpeg",
   },
   {
     id: 2,
     title: "First Date",
-    date: "March 1, 2020",
+    date: "Agust 24, 2025",
     description:
-      "Our first official date! We went to a movie and had dinner at our favorite Italian restaurant. It was the perfect start to our journey together.",
-    image: "/love/movie.jpeg",
+      "Aku gatau ini pantas dihitung sebagai first date atau nggak, tapi waktu pertama kita ketemu reaksi kamu iuh dan dingin banget, aku sempet mikir jangan-jangan kamu benci aku ya waktu itu haha.",
+    image: "/timeline/firstdate.jpeg",
   },
   {
     id: 3,
     title: "Became a Couple",
-    date: "April 15, 2020",
+    date: "Sept 06, 2025",
     description:
-      "After a few amazing dates, we decided to make it official. We became a couple and shared this special moment with our closest friends.",
+      "Di hari itu kita belum sempat foto bareng, jadi aku pakai foto ini buat ngingetin momen kecil ini. \n\nSiangnya kita makan bareng di Plaza Kalibata, ngobrol panjang tanpa sadar waktu jalan terus. Dari situ aku ngerasa kita bukan cuma sekadar dekat, tapi lagi jatuh suka. Sorenya kita nonton The Conjuring: Last Rites di CGV. Film horor, tapi yang paling aku perhatiiin justru kamu bukan filmnya, dan di momen ini juga kita saling berpelukan ❤️. Aku sampai buka lagi chat WhatsApp kita satu per satu, takut salah tanggal buat momen yang sespesial ini.",
     image: "/love/flower.jpeg",
   },
   {
@@ -39,15 +39,15 @@ const timelineData: TimelineEvent[] = [
     title: "First Trip Together",
     date: "July 20, 2020",
     description:
-      "We went on our first trip together to Bali. It was a magical experience filled with laughter, adventure, and unforgettable memories.",
+      "Finally kemarin akhirnya jadi juga ke seaworld sebagai hukuman kekalahan aku karna permen caca. sebelum kita jalan, ada aja ujiannya sampai pertimbangin lagi buat berangkat, walaupun begitu aku seneng bisa wujudin itu bareng kamu, malah kalo bisa kita taruhan lagi wlee",
     image: "/love/seaworld.jpeg",
   },
   {
     id: 5,
-    title: "First Anniversary",
+    title: "Your Birthday Celebration",
     date: "April 15, 2021",
     description:
-      "Celebrated our first anniversary together! We reminisced about all the wonderful memories we've made and looked forward to many more.",
+      "Hari spesial kamu, aku seneng banget bisa bikin kamu surprise kecil-kecilan. semoga kamu suka yaa hadiahnya (rahasiaa), walaupun sederhana tapi aku pilih dengan sepenuh hati hehe. semoga di umur yang baru ini, semua harapan dan impian kamu bisa tercapai yaa sayang.",
     image: "/love/kondangan.jpeg",
   },
 ];
