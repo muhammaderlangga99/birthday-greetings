@@ -3,15 +3,15 @@ import Heading from "@/components/heading";
 import { useEffect } from "react";
 
 const coupons = [
+  // {
+  //   code: "Hadiah 1",
+  //   front: "/coupon/aku.png",
+  //   back: "/coupon/aku.png",
+  //   revealOnClick: false,
+  //   showLock: true,
+  // },
   {
-    code: "Hadiah 1",
-    front: "/coupon/aku.png",
-    back: "/coupon/aku.png",
-    revealOnClick: false,
-    showLock: true,
-  },
-  {
-    code: "Hadiah 2: rahasia ?",
+    code: "Hadiah: rahasia ?",
     front: "/coupon/secret.jpg",
     back: "/coupon/secret.jpg",
     revealOnClick: false,
