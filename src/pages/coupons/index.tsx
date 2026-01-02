@@ -7,8 +7,8 @@ const coupons = [
     code: "Hadiah 1",
     front: "/coupon/aku.png",
     back: "/coupon/aku.png",
-    revealOnClick: true,
-    showLock: false,
+    revealOnClick: false,
+    showLock: true,
   },
   {
     code: "Hadiah 2: rahasia ?",
